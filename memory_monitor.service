@@ -1,0 +1,15 @@
+[Unit]
+Description=Memory Monitor Daemon
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=/home/memory_monitor_scripts/memory_monitor
+ExecStart=python3 memory_monitor.py
+SyslogIdentifier=memory_monitor
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
