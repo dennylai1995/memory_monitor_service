@@ -1,12 +1,21 @@
 
 # Memory monitor service
-A systemd service to periodically (default: 2Hz) check system memory usage and record top 10 memory consumers (processes) when a memory threshold (default: 80%) is exceeded.
+A systemd service to periodically (default: 2Hz) check system memory usage and record top 10 memory consumers (processes) & output of `free` command when a memory threshold (default: 80%) is exceeded.
 
-## Prerequisites
-- Linux distro with systemd & python3 
+## Dependencies
+- Linux distro
+- `systemd`
+- `python3`
+- `free`
+- `grep`
+- `echo`
+- `ps`
+- `head`
+- `tail`
 
 ## Tested environment
-- Ubuntu 20.04
+- Ubuntu 20.04.6 LTS
+- Raspbian GNU/Linux 11 (bullseye)
 
 ## Default settings
 1. script folder: `/home/memory_monitor_scripts`
@@ -16,6 +25,7 @@ A systemd service to periodically (default: 2Hz) check system memory usage and r
 
 ## How to deploy
 - just run `bash deploy.sh`
+- may need root privilege (due to `sudo`)
 
 ## How to debug
 1. journalctl -r -t memory_monitor  (-r means reverse, -t means tag)
